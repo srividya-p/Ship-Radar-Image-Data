@@ -15,7 +15,7 @@
 
  */
 
-(function() {
+(function () {
   isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
   if (isWindows) {
@@ -49,7 +49,7 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   $('body').bootstrapMaterialDesign();
 
@@ -70,14 +70,14 @@ $(document).ready(function() {
   //  Activate the tooltips
   $('[rel="tooltip"]').tooltip();
 
-  $('.form-control').on("focus", function() {
+  $('.form-control').on("focus", function () {
     $(this).parent('.input-group').addClass("input-group-focus");
-  }).on("blur", function() {
+  }).on("blur", function () {
     $(this).parent(".input-group").removeClass("input-group-focus");
   });
 
   // remove class has-error for checkbox validation
-  $('input[type="checkbox"][required="true"], input[type="radio"][required="true"]').on('click', function() {
+  $('input[type="checkbox"][required="true"], input[type="radio"][required="true"]').on('click', function () {
     if ($(this).hasClass('error')) {
       $(this).closest('div').removeClass('has-error');
     }
@@ -85,20 +85,20 @@ $(document).ready(function() {
 
 });
 
-$(document).on('click', '.navbar-toggler', function() {
+$(document).on('click', '.navbar-toggler', function () {
   $toggle = $(this);
 
   if (mobile_menu_visible == 1) {
     $('html').removeClass('nav-open');
 
     $('.close-layer').remove();
-    setTimeout(function() {
+    setTimeout(function () {
       $toggle.removeClass('toggled');
     }, 400);
 
     mobile_menu_visible = 0;
   } else {
-    setTimeout(function() {
+    setTimeout(function () {
       $toggle.addClass('toggled');
     }, 430);
 
@@ -111,17 +111,17 @@ $(document).on('click', '.navbar-toggler', function() {
       $layer.appendTo(".wrapper-full-page");
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
       $layer.addClass('visible');
     }, 100);
 
-    $layer.click(function() {
+    $layer.click(function () {
       $('html').removeClass('nav-open');
       mobile_menu_visible = 0;
 
       $layer.removeClass('visible');
 
-      setTimeout(function() {
+      setTimeout(function () {
         $layer.remove();
         $toggle.removeClass('toggled');
 
@@ -136,13 +136,13 @@ $(document).on('click', '.navbar-toggler', function() {
 });
 
 // activate collapse right menu when the windows is resized
-$(window).resize(function() {
+$(window).resize(function () {
   md.initSidebarsCheck();
 
   // reset the seq for charts drawing animations
   seq = seq2 = 0;
 
-  setTimeout(function() {
+  setTimeout(function () {
     md.initDashboardPageCharts();
   }, 500);
 });
@@ -156,7 +156,7 @@ md = {
     disabled_collapse_init: 0
   },
 
-  checkSidebarImage: function() {
+  checkSidebarImage: function () {
     $sidebar = $('.sidebar');
     image_src = $sidebar.data('image');
 
@@ -166,7 +166,7 @@ md = {
     }
   },
 
-  initSidebarsCheck: function() {
+  initSidebarsCheck: function () {
     if ($(window).width() <= 991) {
       if ($sidebar.length != 0) {
         md.initRightMenu();
@@ -174,15 +174,14 @@ md = {
     }
   },
 
-  initDashboardPageCharts: function() {
+  initDashboardPageCharts: function () {
 
     if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
-      /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
       dataDailySalesChart = {
-        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        labels: ['0', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Time'],
         series: [
-          [12, 17, 7, 17, 23, 18, 38]
+          [310, 305, 300, 295, 292, 265, 254, 269, 280, 295]
         ]
       };
 
@@ -190,8 +189,8 @@ md = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
-        low: 0,
-        high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        low: 200,
+        high: 320, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
@@ -208,9 +207,9 @@ md = {
       /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
       dataCompletedTasksChart = {
-        labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+        labels: ['0', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Time'],
         series: [
-          [230, 750, 450, 300, 280, 240, 200, 190]
+          [13.8, 13.6, 13.1, 13.5, 12.9, 12.2, 11.6, 8.9, 8.5, 8.2]
         ]
       };
 
@@ -218,8 +217,8 @@ md = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
-        low: 0,
-        high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        low: 8,
+        high: 14, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
@@ -236,19 +235,19 @@ md = {
 
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-      var dataWebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+      var dataViewsChart = {
+        labels: ['0', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Time'],
         series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+          [299, 301, 298, 301, 302, 314, 318, 320, 325, 328]
 
         ]
       };
-      var optionsWebsiteViewsChart = {
+      var optionsViewsChart = {
         axisX: {
           showGrid: false
         },
-        low: 0,
-        high: 1000,
+        low: 299,
+        high: 330,
         chartPadding: {
           top: 0,
           right: 5,
@@ -260,20 +259,20 @@ md = {
         ['screen and (max-width: 640px)', {
           seriesBarDistance: 5,
           axisX: {
-            labelInterpolationFnc: function(value) {
+            labelInterpolationFnc: function (value) {
               return value[0];
             }
           }
         }]
       ];
-      var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+      var ViewsChart = Chartist.Bar('#ViewsChart', dataViewsChart, optionsViewsChart, responsiveOptions);
 
       //start animation for the Emails Subscription Chart
-      md.startAnimationForBarChart(websiteViewsChart);
+      md.startAnimationForBarChart(ViewsChart);
     }
   },
 
-  showNotification: function(from, align) {
+  showNotification: function (from, align) {
     type = ['', 'info', 'danger', 'success', 'warning', 'primary'];
 
     color = Math.floor((Math.random() * 5) + 1);
@@ -292,7 +291,7 @@ md = {
     });
   },
 
-  checkScrollForTransparentNavbar: debounce(function() {
+  checkScrollForTransparentNavbar: debounce(function () {
     if ($(document).scrollTop() > 260) {
       if (transparent) {
         transparent = false;
@@ -306,7 +305,7 @@ md = {
     }
   }, 17),
 
-  initRightMenu: debounce(function() {
+  initRightMenu: debounce(function () {
 
     $sidebar_wrapper = $('.sidebar-wrapper');
 
@@ -330,7 +329,7 @@ md = {
       $nav_content.insertBefore($sidebar_nav);
       $navbar_form.insertBefore($nav_content);
 
-      $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
+      $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function (event) {
         event.stopPropagation();
 
       });
@@ -350,8 +349,8 @@ md = {
     }
   }, 200),
 
-  startAnimationForLineChart: function(chart) {
-    chart.on('draw', function(data) {
+  startAnimationForLineChart: function (chart) {
+    chart.on('draw', function (data) {
       if ((data.type === 'line' || data.type === 'area') && window.matchMedia("(min-width: 900px)").matches) {
         data.element.animate({
           d: {
@@ -380,8 +379,8 @@ md = {
     seq = 0;
 
   },
-  startAnimationForBarChart: function(chart) {
-    chart.on('draw', function(data) {
+  startAnimationForBarChart: function (chart) {
+    chart.on('draw', function (data) {
       if (data.type === 'bar' && window.matchMedia("(min-width: 900px)").matches) {
         seq2++;
         data.element.animate({
@@ -409,11 +408,11 @@ md = {
 
 function debounce(func, wait, immediate) {
   var timeout;
-  return function() {
+  return function () {
     var context = this,
       args = arguments;
     clearTimeout(timeout);
-    timeout = setTimeout(function() {
+    timeout = setTimeout(function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     }, wait);
