@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, flash, redirect
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './static/uploads'
+app.config['UPLOAD_FOLDER'] = './static/uploads/'
 
 
 @app.route('/')
