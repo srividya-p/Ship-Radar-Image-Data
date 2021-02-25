@@ -1,5 +1,6 @@
-import os
 from flask import Flask, render_template, request, flash, redirect
+from Radar import TextRecognition
+import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './static/uploads/'
 
@@ -25,8 +26,12 @@ def text_from_image():
         if file:
             path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(path)
+            print(path)
+            Map = TextRecognition(path)
+            print("printing Map")
+            print(Map)
             # Call Model function here and pass result to 'value'
-            return render_template("text-from-image.html", values={'HDG':'300', 'COG':'13', 'SOG':'300', 'UTC':'Bla'}, exists=True, path=path)
+            return render_template("text-from-image.html", values=Map, exists=True, path=path)
     else:
         return render_template("text-from-image.html")
 
