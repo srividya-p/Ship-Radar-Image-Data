@@ -86,12 +86,12 @@
                             <div class="card card-stats">
                                 <div class="card-header card-header-warning card-header-icon">
                                     <div class="card-icon">
-                                        <form method="POST">
+                                        <form method="POST" enctype="multipart/form-data">
                                             <label for="image">
                                                 <span class="material-icons"
                                                     style="font-size:50px;color: white;">add_photo_alternate</span>
                                                 <input type="file" name="image" id="image"
-                                                    onchange="show(this.files[0])" style="display:none">
+                                                    onchange="this.form.submit();" style="display:none">
                                             </label>
                                         </form>
                                     </div>
@@ -121,230 +121,18 @@
                                     <div class="table-responsive">
                                         <table id="values" class="table">
                                             <thead class=" text-primary">
-                                                <th>
-                                                    #Sr. No.
-                                                </th>
-                                                <th>
-                                                    Label
-                                                </th>
-                                                <th>
-                                                    Value
-                                                </th>
-                                                <th>
-                                                    Units
-                                                </th>
+                                                <th>#Sr. No.</th>
+                                                <th>Label</th>
+                                                <th>Value</th>
                                             </thead>
                                             <tbody>
+                                                {%- for i in values %}
                                                 <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
+                                                    <td>{{loop.index}}</td>
+                                                    <td>{{i}}</td>
+                                                    <td>{{values[i]}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        HDG
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                    <td>
-                                                        Bla
-                                                    </td>
-                                                </tr>
+                                                {%- endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -356,13 +144,14 @@
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
         <script>
             function show(val) {
                 document.getElementById('preview_image').style.display = 'block';
                 document.getElementById('download_csv_button').style.display = 'block';
                 document.getElementById('download_pdf_button').style.display = 'block';
                 document.getElementById('value_table').style.display = 'block';
-                document.getElementById('preview_image').src = window.URL.createObjectURL(val)
+                document.getElementById('preview_image').src = val
             }
 
             function download_csv() {
@@ -403,6 +192,12 @@
                 doc.save('image-data-' + now + '.pdf')
             }
         </script>
+
+        {% if exists==True %}
+        <script>
+            show('{{ path }}')
+        </script>
+        {% endif %}
     </div>
     <!--   Core JS Files   -->
     <script src="../static/js/core/jquery.min.js"></script>
