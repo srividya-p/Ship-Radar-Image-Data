@@ -8,6 +8,8 @@ import numpy as np
 pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 tessdata_dir_config = '--tessdata-dir "C:\\Program Files\\Tesseract-OCR\\tessdata"'
 
+pipeline = keras_ocr.pipeline.Pipeline()
+
 def TextRecognition(imgPath):
     image = cv2.imread(imgPath)
     OriginalImg = image
@@ -33,7 +35,6 @@ def TextRecognition(imgPath):
     ]
     ]
 
-    pipeline = keras_ocr.pipeline.Pipeline()
     prediction_groups = pipeline.recognize(images)
 
     fig, axs = plt.subplots(nrows=len(images), figsize=(20, 20))
@@ -59,7 +60,6 @@ def TextRecognition(imgPath):
     text4 = pytesseract.image_to_string(
         Image.open(imgPath4),
         config=tessdata_dir_config)
-
 
     def ShipInformation(text):
         text = text.split("\n")

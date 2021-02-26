@@ -30,6 +30,7 @@
             display: none;
             width: 30%;
             margin-left: 10%;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -43,7 +44,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo"><a class="simple-text logo-normal">
-                    Float Data
+                    Text Cruizer
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
@@ -84,14 +85,14 @@
                     <div class="row">
                         <div class="col-xl-4 col-lg-7 col-md-7 col-sm-7">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
-                                    <div class="card-icon">
-                                        <form method="POST" enctype="multipart/form-data">
-                                            <label for="image">
+                                <div class="card-header card-header-warning card-header-icon" >
+                                    <div class="card-icon" >
+                                        <form method="POST" enctype="multipart/form-data" >
+                                            <label for="image" style="cursor: pointer;">
                                                 <span class="material-icons"
                                                     style="font-size:50px;color: white;">add_photo_alternate</span>
-                                                <input type="file" name="image" id="image"
-                                                    onchange="this.form.submit();" style="display:none">
+                                                <input type="file" name="image" id="image" 
+                                                    onchange="this.form.submit();" style="display:none; ">
                                             </label>
                                         </form>
                                     </div>
@@ -112,7 +113,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-8" id="value_table" style="display:none">
+                        <div class="col-md-6" id="value_table" style="display:none; margin-left: 100px;">
                             <div class="card">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title ">Image Values</h4>
