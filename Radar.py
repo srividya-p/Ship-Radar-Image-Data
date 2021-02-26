@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import keras_ocr
 import numpy as np
 
-pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
-tessdata_dir_config = '--tessdata-dir "C:\\Program Files (x86)\\Tesseract-OCR\\tessdata"'
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+tessdata_dir_config = '--tessdata-dir "C:\\Program Files\\Tesseract-OCR\\tessdata"'
 
 def TextRecognition(imgPath):
     image = cv2.imread(imgPath)
@@ -64,9 +64,21 @@ def TextRecognition(imgPath):
     def ShipInformation(text):
         text = text.split("\n")
         HDG = text[0].split(" ")[-1]
+        if(len(HDG)<2):
+            HDG = ' '.join(text[0].split(" ")[-2:])
+
         SPD = ' '.join(text[1].split(" ")[-2:])
+        if(len(SPD)<2):
+            SPD = ' '.join(text[1].split(" ")[-3:])
+
         COG = text[2].split(" ")[-1]
+        if(len(COG)<2):
+            COG = ' '.join(text[2].split(" ")[-2:])
+
         SOG = ' '.join(text[3].split(" ")[-2:])
+        if(len(SOG)<2):
+            SOG = ' '.join(text[3].split(" ")[-3:])
+
         UTC = [" ".join(time.split(" ")[1:])
             for time in text if(time and time[0] == "U")][0]
         shipInfo = {"HDG": HDG, "SPD": SPD, "COG": COG, "SOG": SOG, "UTC": UTC}
