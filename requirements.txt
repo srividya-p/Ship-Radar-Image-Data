@@ -1,0 +1,7 @@
+Flask==1.1.2
+keras_ocr==0.8.6
+matplotlib==3.3.1
+opencv_python==4.4.0.46
+pytesseract==0.3.7
+numpy==1.19.1
+Pillow==8.1.0
